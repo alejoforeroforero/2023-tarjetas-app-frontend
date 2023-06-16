@@ -1,5 +1,5 @@
-//let direccion = "https://jealous-tiara-bass.cyclic.app/";
-let direccion = "http://localhost:3400";
+let direccion = "https://jealous-tiara-bass.cyclic.app/";
+//let direccion = "http://localhost:3400";
 
 async function logear(usuario, divBg){
 
