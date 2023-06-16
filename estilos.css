@@ -67,6 +67,19 @@ main {
     margin: 1%;
 }
 
+@media only screen and (max-width: 600px) {
+    .formulario {
+        width: 90%;
+        left: 5%;
+    }
+
+    .formulario-form input {
+        width: 300px;
+        height: 30px;
+        margin: 1%;
+    }
+}
+
 .formulario-form button {
     padding: 5px 10px;
     border-radius: 4px;
@@ -112,12 +125,21 @@ main {
     scale: 1.04;
 }
 
-.div-cat span{
-    margin-right: 10px;
+.div-cat{
+    max-width: 80%;
+    overflow: scroll;
+    margin: 0px 10px 0px 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
 }
 
 .span-categoria{
     color: rgb(214, 255, 208);
+    margin-right: 10px;
+    padding: 4px 12px !important;
+    background-color: rgb(28, 28, 28);
+    border-radius: 12px;
     cursor: pointer;
 }
 
