@@ -72,6 +72,9 @@
     font-size: 1.1rem;
     background-color: rgb(179, 178, 178);
     color: aliceblue;
-    padding: 3px 10px;
+    padding: 3px 7px;
     border-radius: 50%;
+    rotate: 90deg;
+    font-size: 18px;
+    color:rgb(214, 255, 208);
 }

@@ -10,7 +10,7 @@ class Card{
         this.infoCard.className = 'info';
 
         this.infoSpan = tag('span', this.infoCard);
-        this.infoSpan.innerHTML = '&sung;';
+        this.infoSpan.innerHTML = '&#9998;';
         this.infoSpan.addEventListener('click', ()=>{
             pintarFormulario(this.info);
         })

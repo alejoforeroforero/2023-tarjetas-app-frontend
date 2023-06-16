@@ -9,8 +9,37 @@ function correr() {
   header = tag("header", document.body);
   main = tag("main", document.body);
 
-  pintarHeader();
-  traerCards(pintarCards);
+  pintarLogin();
+}
+
+function pintarLogin() {
+  const divBg = tag("div", document.body);
+  divBg.className = "login"
+
+  const divI = tag("div", divBg);
+
+  const forma = tag("form", divI);
+  forma.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const usuario = {
+      email: forma.elements["email"].value,
+      password: forma.elements["password"].value,
+    };
+
+    logear(usuario, divBg);
+  });
+
+  const emailI = tag("input", forma);
+  emailI.name = "email";
+  emailI.type = "text";
+
+  const passwordI = tag("input", forma);
+  passwordI.name = "password";
+  passwordI.type = "password";
+
+  const boton = tag("button", forma);
+  boton.innerHTML = "entrar";
 }
 
 function pintarHeader() {
@@ -27,7 +56,6 @@ function pintarHeader() {
 }
 
 function pintarCards(data) {
-
   ajustarHeader(data.categorias);
 
   ajustarCards(data.tarjetas);
@@ -43,15 +71,16 @@ function ajustarHeader(categorias) {
     traerCards(pintarCards);
   });
 
-  categorias.sort((cat1 ,cat2)=> cat1.titulo > cat2.titulo ? 1 : -1)
-  .map((categoria) => {
-    const span = tag("span", divCat);
-    span.className = "span-categoria";
-    span.innerHTML = categoria.titulo;
-    span.addEventListener("click", () => {
-      traerCardsCategoria(pintarCards, categoria.titulo);
+  categorias
+    .sort((cat1, cat2) => (cat1.titulo > cat2.titulo ? 1 : -1))
+    .map((categoria) => {
+      const span = tag("span", divCat);
+      span.className = "span-categoria";
+      span.innerHTML = categoria.titulo;
+      span.addEventListener("click", () => {
+        traerCardsCategoria(pintarCards, categoria.titulo);
+      });
     });
-  });
 }
 
 function ajustarCards(cards) {
@@ -96,7 +125,7 @@ function pintarFormulario(data) {
   form.className = "formulario-form";
   form.addEventListener("submit", (event) => {
     event.preventDefault();
-    
+
     card.anverso = form.elements["anverso"].value;
     card.reverso = form.elements["reverso"].value;
     card.categoria = form.elements["categoria"].value;

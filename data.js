@@ -1,4 +1,35 @@
-let direccion = "https://jealous-tiara-bass.cyclic.app/";
+//let direccion = "https://jealous-tiara-bass.cyclic.app/";
+let direccion = "http://localhost:3400";
+
+async function logear(usuario, divBg){
+
+  const direccionLogin = `${direccion}/login`;
+
+  const email = usuario.email;
+  const password = usuario.password;
+
+  const response = await fetch(direccionLogin, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      email,
+      password,
+    }),
+  });
+
+  const responseData = await response.json();
+
+  if(responseData.usuarioData){
+    divBg.style.display = 'none';
+    pintarHeader();
+    traerCards(pintarCards);
+
+  }else{
+    alert(responseData);
+  }
+}
 
 async function traerCards(fx) {
   const response = await fetch(direccion);
