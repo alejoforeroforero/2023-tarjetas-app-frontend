@@ -1,0 +1,53 @@
+header {
+    height: 40px;
+    background-color: rgb(101, 101, 101);
+    color: aliceblue;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    max-width: 100vw;
+    overflow: hidden;
+}
+
+.agregar {
+    margin-right: 20px;
+    background-color: rgb(214, 255, 208);
+    padding: 1px 10px 3px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 2rem;
+    transition: 0.5s;
+    color: rgb(16, 206, 54);
+}
+
+.agregar:hover {
+    background-color: rgb(176, 234, 253);
+    color: rgb(71, 71, 224);
+    scale: 1.05;
+}
+
+.span-categoria{
+    color: rgb(214, 255, 208);
+    margin-right: 10px;
+    padding: 4px 12px !important;
+    background-color: rgb(28, 28, 28);
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.span-categoria:hover{
+    color: rgb(176, 234, 253);
+}
+
+.todas{
+    margin-right: 30px!important;
+}
+
+.div-cat{
+    max-width: 70%;
+    overflow: scroll;
+    margin: 0px 10px 0px 10%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
