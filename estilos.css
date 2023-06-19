@@ -126,9 +126,9 @@ main {
 }
 
 .div-cat{
-    max-width: 80%;
+    max-width: 70%;
     overflow: scroll;
-    margin: 0px 10px 0px 40px;
+    margin: 0px 10px 0px 10%;
     height: 40px;
     display: flex;
     align-items: center;
