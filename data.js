@@ -1,8 +1,7 @@
 let direccion = "https://jealous-tiara-bass.cyclic.app/";
 //let direccion = "http://localhost:3400";
 
-async function logear(usuario, divBg){
-
+async function logear(usuario, divBg) {
   const direccionLogin = `${direccion}/login`;
 
   const email = usuario.email;
@@ -21,12 +20,16 @@ async function logear(usuario, divBg){
 
   const responseData = await response.json();
 
-  if(responseData.usuarioData){
-    divBg.style.display = 'none';
+  if (responseData.usuarioData) {
+    divBg.style.display = "none";
     pintarHeader();
     traerCards(pintarCards);
 
-  }else{
+    localStorage.setItem("usuarioTarjeta", JSON.stringify({
+      usuarioEmail:responseData.usuarioData.email,
+      token:responseData.usuarioData.token
+    }));
+  } else {
     alert(responseData);
   }
 }
@@ -88,7 +91,6 @@ async function borrarCard(id) {
 }
 
 async function editarCard(card) {
-
   const anverso = card.anverso;
   const reverso = card.reverso;
   const categoria = card.categoria;

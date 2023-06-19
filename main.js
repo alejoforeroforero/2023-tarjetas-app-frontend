@@ -9,7 +9,21 @@ function correr() {
   header = tag("header", document.body);
   main = tag("main", document.body);
 
-  pintarLogin();
+  pintarTarjetas();
+}
+
+function pintarTarjetas(){
+  header.innerHTML = "";
+  main.innerHTML = "";
+
+  const usuarioTarjeta = localStorage.getItem("usuarioTarjeta");
+
+  if(!usuarioTarjeta){
+    pintarLogin();
+  }else{
+    pintarHeader();
+    traerCards(pintarCards);
+  }
 }
 
 function pintarLogin() {
@@ -86,12 +100,25 @@ function ajustarHeader(categorias) {
 function ajustarCards(cards) {
   main.innerHTML = "";
 
+  const divS = tag("div", main);
+  divS.className = "salir";
+
+  const spanS = tag("span", divS);
+  spanS.innerHTML = "Salir";
+  spanS.addEventListener("click", ()=>{
+    localStorage.removeItem("usuarioTarjeta");
+    pintarTarjetas();
+  })
+
+  const tarjetaSeccion = tag("section", main);
+  tarjetaSeccion.className = "tarjeta-seccion";
+
   cards
     .sort((card1, card2) => (card1.anverso > card2.anverso ? 1 : -1))
     .map((card) => {
       const cardObj = new Card();
       cardObj.info = card;
-      cardObj.pintar(main);
+      cardObj.pintar(tarjetaSeccion);
     });
 }
 
