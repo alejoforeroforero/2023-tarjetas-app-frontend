@@ -20,7 +20,7 @@ function ajustarCards(cards) {
   tarjetaSeccion.className = "tarjeta-seccion";
 
   cards
-    .sort((card1, card2) => (card1.anverso > card2.anverso ? 1 : -1))
+    .sort((card1, card2) => (card1 > card2 ? 1 : -1))
     .map((card) => {
       const cardObj = new Card();
       cardObj.info = card;
