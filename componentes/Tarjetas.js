@@ -19,13 +19,21 @@ function ajustarCards(cards) {
   const tarjetaSeccion = tag("section", main);
   tarjetaSeccion.className = "tarjeta-seccion";
 
-  cards
-    .sort((card1, card2) => (card1 > card2 ? 1 : -1))
-    .map((card) => {
-      const cardObj = new Card();
-      cardObj.info = card;
-      cardObj.pintar(tarjetaSeccion);
-    });
+  // cards
+  //   .sort((card1, card2) => (card1.anverso < card2.anverso ? -1 : 1))
+  //   .map((card) => {
+  //     const cardObj = new Card();
+  //     cardObj.info = card;
+  //     cardObj.pintar(tarjetaSeccion);
+  //   });
+
+  const cardsReverse = [...cards].reverse();
+
+  cardsReverse.map((card)=>{
+    const cardObj = new Card();
+    cardObj.info = card;
+    cardObj.pintar(tarjetaSeccion);
+  })  
 }
 
 function pintarCard(el, card) {
